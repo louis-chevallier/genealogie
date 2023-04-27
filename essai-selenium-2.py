@@ -11,9 +11,13 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+import sys
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+options = FirefoxOptions()
+options.add_argument('--headless')
 
 #ouverture FireFox
-browser = webdriver.Firefox()
+browser = webdriver.Firefox(options=options)
 
 #sur deuxieme ecran
 browser.set_window_position(2000,1)
@@ -32,6 +36,7 @@ while not fin :
     for link in liste_doc :
         link.click()
         time.sleep(6)
+        print("xxx")
         # switch à faire sur le deuxieme onglet où s'affiche les doc
         
         # insérer le traitement des pages cf A plus bas (au fait ! les fonctions ça existe ! j(avais oublié !!))
@@ -39,7 +44,7 @@ while not fin :
         
         # + test à faire si plus de page (click à prévoir sur page suivante)
     fin = True
-    
+    print("")
     #bug actuellement sur le passage à la la commune d'Ambon ...
         
     
